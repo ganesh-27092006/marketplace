@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Seller Dashboard - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="seller-body">
+
+    <!-- Sidebar -->
+
+    <aside class="seller-sidebar">
+
+        <a href="index.html" class="seller-logo">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Market<span>Hub</span>
+        </a>
+
+        <div class="seller-profile">
+            <div class="seller-avatar">
+                <i class="fa-solid fa-store"></i>
+            </div>
+
+            <div>
+                <h4 id="sellerName">Seller</h4>
+                <span>Marketplace Seller</span>
+            </div>
+        </div>
+
+        <div class="seller-menu">
+
+            <a href="#dashboard" class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="#addProduct">
+                <i class="fa-solid fa-plus"></i>
+                Add Product
+            </a>
+
+            <a href="#sellerProducts">
+                <i class="fa-solid fa-box"></i>
+                My Products
+            </a>
+
+            <a href="#orders">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Orders
+            </a>
+
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Back to Store
+            </a>
+
+            <a href="#" onclick="logoutUser()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="seller-main">
+
+        <!-- Top -->
+
+        <div class="seller-topbar">
+
+            <div>
+                <p>SELLER PANEL</p>
+                <h1>Welcome back, <span id="sellerWelcome">Seller</span> 👋</h1>
+            </div>
+
+            <button class="seller-add-btn"
+                onclick="document.getElementById('addProduct').scrollIntoView()">
+
+                <i class="fa-solid fa-plus"></i>
+                Add New Product
+
+            </button>
+
+        </div>
+
+
+        <!-- Dashboard Stats -->
+
+        <section class="seller-stats" id="dashboard">
+
+            <div class="seller-stat-card">
+
+                <div class="stat-icon products-icon">
+                    <i class="fa-solid fa-box"></i>
+                </div>
+
+                <div>
+                    <span>Total Products</span>
+                    <h2 id="totalProducts">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="seller-stat-card">
+
+                <div class="stat-icon orders-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div>
+                    <span>Total Orders</span>
+                    <h2 id="sellerOrders">0</h2>
+                </div>
+
+            </div>
+
+
+            <div class="seller-stat-card">
+
+                <div class="stat-icon sales-icon">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <div>
+                    <span>Total Sales</span>
+                    <h2 id="sellerSales">₹0</h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Add Product -->
+
+        <section class="seller-section" id="addProduct">
+
+            <div class="seller-section-header">
+                <div>
+                    <p>PRODUCT MANAGEMENT</p>
+                    <h2>Add New Product</h2>
+                </div>
+            </div>
+
+
+            <div class="add-product-card">
+
+                <div class="seller-form-row">
+
+                    <div class="seller-input">
+
+                        <label>Product Name</label>
+
+                        <input
+                            type="text"
+                            id="sellerProductName"
+                            placeholder="Example: Wireless Headphones"
+                        >
+
+                    </div>
+
+
+                    <div class="seller-input">
+
+                        <label>Category</label>
+
+                        <select id="sellerProductCategory">
+
+                            <option value="">Select Category</option>
+                            <option>Electronics</option>
+                            <option>Fashion</option>
+                            <option>Home & Living</option>
+                            <option>Sports</option>
+                            <option>Accessories</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="seller-form-row">
+
+                    <div class="seller-input">
+
+                        <label>Price (₹)</label>
+
+                        <input
+                            type="number"
+                            id="sellerProductPrice"
+                            placeholder="Example: 1999"
+                        >
+
+                    </div>
+
+
+                    <div class="seller-input">
+
+                        <label>Product Image URL</label>
+
+                        <input
+                            type="text"
+                            id="sellerProductImage"
+                            placeholder="Paste product image URL"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="seller-input">
+
+                    <label>Product Description</label>
+
+                    <textarea
+                        id="sellerProductDescription"
+                        placeholder="Write product description..."
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="save-product-btn"
+                    onclick="addSellerProduct()"
+                >
+
+                    <i class="fa-solid fa-plus"></i>
+                    Add Product
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- My Products -->
+
+        <section class="seller-section" id="sellerProducts">
+
+            <div class="seller-section-header">
+
+                <div>
+                    <p>INVENTORY</p>
+                    <h2>My Products</h2>
+                </div>
+
+                <span class="product-count-badge">
+                    <span id="productCountBadge">0</span> Products
+                </span>
+
+            </div>
+
+
+            <div
+                class="seller-products-grid"
+                id="sellerProductsGrid"
+            >
+
+                <!-- JavaScript Products -->
+
+            </div>
+
+
+            <div
+                class="seller-empty-products"
+                id="sellerEmptyProducts"
+            >
+
+                <i class="fa-solid fa-box-open"></i>
+
+                <h3>No Products Yet</h3>
+
+                <p>
+                    Start selling by adding your first product.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Orders -->
+
+        <section class="seller-section" id="orders">
+
+            <div class="seller-section-header">
+
+                <div>
+                    <p>SALES</p>
+                    <h2>Recent Orders</h2>
+                </div>
+
+            </div>
+
+
+            <div class="seller-orders-card" id="sellerOrdersList">
+
+                <div class="seller-empty-orders">
+
+                    <i class="fa-solid fa-receipt"></i>
+
+                    <h3>No Orders Yet</h3>
+
+                    <p>
+                        Your customer orders will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shopping Cart - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Market<span>Hub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="cart.html">Cart</a>
+            </div>
+
+            <div class="nav-icons">
+<button id="cartBtn"></button>
+                <button>
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <button onclick="window.location.href='cart.html'">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </button>
+
+                <button class="login-btn">Login</button>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Cart Header -->
+
+    <section class="cart-hero">
+
+        <p>HOME / SHOPPING CART</p>
+
+        <h1>
+            Your Shopping Cart 🛒
+        </h1>
+
+        <span>
+            Review your products and proceed to checkout
+        </span>
+
+    </section>
+
+
+    <!-- Cart Section -->
+
+    <section class="cart-container">
+
+        <!-- Cart Items -->
+
+        <div class="cart-items-section">
+
+            <div class="cart-heading">
+
+                <h2>
+                    Cart Items
+                </h2>
+
+                <button onclick="clearCart()">
+                    <i class="fa-solid fa-trash"></i>
+                    Clear Cart
+                </button>
+
+            </div>
+
+
+            <div id="cartItems">
+
+                <!-- Products JavaScript मधून दिसतील -->
+
+            </div>
+
+
+            <!-- Empty Cart -->
+
+            <div
+                class="empty-cart"
+                id="emptyCart"
+                style="display:none;"
+            >
+
+                <div>🛒</div>
+
+                <h2>Your Cart is Empty</h2>
+
+                <p>
+                    Looks like you haven't added anything yet.
+                </p>
+
+                <a href="products.html">
+                    Explore Products
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Order Summary -->
+
+        <aside class="order-summary">
+
+            <h2>Order Summary</h2>
+
+            <div class="summary-row">
+
+                <span>Subtotal</span>
+
+                <b id="subtotal">
+                    ₹0
+                </b>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>Delivery</span>
+
+                <b id="delivery">
+                    FREE
+                </b>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="summary-total">
+
+                <span>Total</span>
+
+                <b id="total">
+                    ₹0
+                </b>
+
+            </div>
+
+
+            <button
+                class="checkout-btn"
+                onclick="checkout()"
+            >
+
+                Proceed to Checkout
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+            <a
+                href="products.html"
+                class="continue-shopping"
+            >
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Continue Shopping
+
+            </a>
+
+
+            <div class="secure-checkout">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Secure Checkout
+                    <small>
+                        Your information is safe with us
+                    </small>
+                </span>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="copyright">
+            © 2026 MarketHub. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

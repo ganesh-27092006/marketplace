@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="admin-body">
+
+    <!-- SIDEBAR -->
+
+    <aside class="admin-sidebar">
+
+        <a href="index.html" class="admin-logo">
+            <i class="fa-solid fa-bag-shopping"></i>
+            Market<span>Hub</span>
+        </a>
+
+        <p class="admin-panel-text">ADMIN PANEL</p>
+
+        <div class="admin-menu">
+
+            <a href="#dashboard" class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="#users">
+                <i class="fa-solid fa-users"></i>
+                Users
+            </a>
+
+            <a href="#products">
+                <i class="fa-solid fa-box"></i>
+                Products
+            </a>
+
+            <a href="#orders">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Orders
+            </a>
+
+            <a href="index.html">
+                <i class="fa-solid fa-store"></i>
+                View Store
+            </a>
+
+            <a href="#" onclick="adminLogout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="admin-main">
+
+        <!-- HEADER -->
+
+        <div class="admin-topbar">
+
+            <div>
+                <p>MARKETPLACE MANAGEMENT</p>
+
+                <h1>
+                    Admin Dashboard
+                    <span>👋</span>
+                </h1>
+            </div>
+
+            <div class="admin-profile">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+                    <h4>Administrator</h4>
+                    <span>MarketHub Admin</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <section
+            class="admin-stats"
+            id="dashboard"
+        >
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon users-bg">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Total Users</span>
+
+                    <h2 id="adminTotalUsers">
+                        0
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon products-bg">
+                    <i class="fa-solid fa-box"></i>
+                </div>
+
+                <div>
+                    <span>Total Products</span>
+
+                    <h2 id="adminTotalProducts">
+                        0
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon orders-bg">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+
+                <div>
+                    <span>Total Orders</span>
+
+                    <h2 id="adminTotalOrders">
+                        0
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="admin-stat-card">
+
+                <div class="admin-stat-icon sales-bg">
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                </div>
+
+                <div>
+                    <span>Total Sales</span>
+
+                    <h2 id="adminTotalSales">
+                        ₹0
+                    </h2>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- USERS -->
+
+        <section
+            class="admin-section"
+            id="users"
+        >
+
+            <div class="admin-section-header">
+
+                <div>
+                    <p>USER MANAGEMENT</p>
+                    <h2>Registered Users</h2>
+                </div>
+
+                <span
+                    class="admin-count-badge"
+                    id="adminUsersBadge"
+                >
+                    0 Users
+                </span>
+
+            </div>
+
+
+            <div class="admin-table-card">
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody
+                            id="adminUsersList"
+                        >
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRODUCTS -->
+
+        <section
+            class="admin-section"
+            id="products"
+        >
+
+            <div class="admin-section-header">
+
+                <div>
+                    <p>PRODUCT MANAGEMENT</p>
+                    <h2>All Products</h2>
+                </div>
+
+                <span
+                    class="admin-count-badge"
+                    id="adminProductsBadge"
+                >
+                    0 Products
+                </span>
+
+            </div>
+
+
+            <div
+                class="admin-products-grid"
+                id="adminProductsList"
+            >
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS -->
+
+        <section
+            class="admin-section"
+            id="orders"
+        >
+
+            <div class="admin-section-header">
+
+                <div>
+                    <p>ORDER MANAGEMENT</p>
+                    <h2>All Orders</h2>
+                </div>
+
+            </div>
+
+
+            <div
+                class="admin-orders-list"
+                id="adminOrdersList"
+            >
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

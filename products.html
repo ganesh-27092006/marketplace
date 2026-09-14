@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Products - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Market<span>Hub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <button>
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <button id="cartBtn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </button>
+
+                <button class="login-btn">Login</button>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Products Header -->
+
+    <section class="products-hero">
+
+        <div>
+            <p>HOME / PRODUCTS</p>
+            <h1>Explore Our Products</h1>
+            <span>Discover amazing products at the best prices</span>
+        </div>
+
+    </section>
+
+
+    <!-- Main Products Section -->
+
+    <section class="marketplace-container">
+
+
+        <!-- Sidebar -->
+
+        <aside class="filter-sidebar">
+
+            <div class="filter-title">
+                <h2>Filters</h2>
+
+                <button onclick="resetFilters()">
+                    Reset
+                </button>
+            </div>
+
+
+            <!-- Search -->
+
+            <div class="filter-box">
+
+                <h3>Search Products</h3>
+
+                <div class="product-search">
+
+                    <input
+                        type="text"
+                        id="productSearch"
+                        placeholder="Search here..."
+                        oninput="filterProducts()"
+                    >
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- Categories -->
+
+            <div class="filter-box">
+
+                <h3>Categories</h3>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="category"
+                        value="all"
+                        checked
+                        onchange="filterProducts()"
+                    >
+
+                    All Products
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="category"
+                        value="electronics"
+                        onchange="filterProducts()"
+                    >
+
+                    Electronics
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="category"
+                        value="mobile"
+                        onchange="filterProducts()"
+                    >
+
+                    Mobile
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="category"
+                        value="fashion"
+                        onchange="filterProducts()"
+                    >
+
+                    Fashion
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="category"
+                        value="gaming"
+                        onchange="filterProducts()"
+                    >
+
+                    Gaming
+                </label>
+
+            </div>
+
+
+            <!-- Price -->
+
+            <div class="filter-box">
+
+                <h3>Price Range</h3>
+
+                <select
+                    id="priceFilter"
+                    onchange="filterProducts()"
+                >
+
+                    <option value="all">
+                        All Prices
+                    </option>
+
+                    <option value="5000">
+                        Under ₹5,000
+                    </option>
+
+                    <option value="20000">
+                        Under ₹20,000
+                    </option>
+
+                    <option value="50000">
+                        Under ₹50,000
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Rating -->
+
+            <div class="filter-box">
+
+                <h3>Customer Rating</h3>
+
+                <label>
+                    <input
+                        type="radio"
+                        name="rating"
+                        value="all"
+                        checked
+                        onchange="filterProducts()"
+                    >
+
+                    All Ratings
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="rating"
+                        value="4"
+                        onchange="filterProducts()"
+                    >
+
+                    ⭐ 4 & Above
+                </label>
+
+
+                <label>
+                    <input
+                        type="radio"
+                        name="rating"
+                        value="3"
+                        onchange="filterProducts()"
+                    >
+
+                    ⭐ 3 & Above
+                </label>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Products Area -->
+
+        <main class="products-area">
+
+
+            <div class="products-top">
+
+                <div>
+                    <h2>All Products</h2>
+                    <p id="productCount">
+                        Showing 8 Products
+                    </p>
+                </div>
+
+
+                <select
+                    id="sortProducts"
+                    onchange="sortProducts()"
+                >
+
+                    <option value="default">
+                        Sort By
+                    </option>
+
+                    <option value="low">
+                        Price: Low to High
+                    </option>
+
+                    <option value="high">
+                        Price: High to Low
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Product Grid -->
+
+            <div
+                class="market-product-grid"
+                id="marketProductGrid"
+            >
+
+
+                <!-- Product 1 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="electronics"
+                    data-price="49999"
+                    data-rating="5"
+                >
+
+                    <div class="market-product-image">
+
+                        <span class="discount">
+                            -20%
+                        </span>
+
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Premium Laptop">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Electronics
+                        </p>
+
+                        <h3>
+                            Premium Laptop
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                            <span>(120)</span>
+                        </div>
+
+                        <div class="product-price">
+
+                            ₹49,999
+
+                            <span>
+                                ₹59,999
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Premium Laptop')"
+                            >
+
+                                View
+
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Premium Laptop')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 2 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="mobile"
+                    data-price="29999"
+                    data-rating="5"
+                >
+
+                    <div class="market-product-image">
+
+                        <span class="discount">
+                            -15%
+                        </span>
+
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=85" alt="Smartphone">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Mobile
+                        </p>
+
+                        <h3>
+                            Smartphone Pro
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                            <span>(98)</span>
+                        </div>
+
+                        <div class="product-price">
+
+                            ₹29,999
+
+                            <span>
+                                ₹35,999
+                            </span>
+
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Smartphone Pro')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Smartphone Pro')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 3 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="electronics"
+                    data-price="2999"
+                    data-rating="4"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Headphones">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Electronics
+                        </p>
+
+                        <h3>
+                            Wireless Headphones
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐
+                            <span>(150)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹2,999
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Wireless Headphones')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Wireless Headphones')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 4 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="fashion"
+                    data-price="1999"
+                    data-rating="4"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85" alt="Sports Shoes">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Fashion
+                        </p>
+
+                        <h3>
+                            Sports Shoes
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐
+                            <span>(89)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹1,999
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Sports Shoes')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Sports Shoes')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 5 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="gaming"
+                    data-price="45999"
+                    data-rating="5"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=85" alt="Gaming Console">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Gaming
+                        </p>
+
+                        <h3>
+                            Gaming Console
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                            <span>(210)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹45,999
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Gaming Console')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Gaming Console')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 6 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="electronics"
+                    data-price="3499"
+                    data-rating="4"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85" alt="Smart Watch">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Electronics
+                        </p>
+
+                        <h3>
+                            Smart Watch
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐
+                            <span>(85)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹3,499
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Smart Watch')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Smart Watch')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 7 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="fashion"
+                    data-price="999"
+                    data-rating="3"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85" alt="T-Shirt">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Fashion
+                        </p>
+
+                        <h3>
+                            Casual T-Shirt
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐
+                            <span>(65)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹999
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Casual T-Shirt')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Casual T-Shirt')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product 8 -->
+
+                <div
+                    class="market-product-card"
+                    data-category="mobile"
+                    data-price="4999"
+                    data-rating="4"
+                >
+
+                    <div class="market-product-image">
+
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=85" alt="Speaker">
+
+                        <button
+                            class="wishlist"
+                            onclick="toggleWishlist(this)"
+                        >
+
+                            <i class="fa-regular fa-heart"></i>
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="market-product-info">
+
+                        <p class="product-category">
+                            Mobile
+                        </p>
+
+                        <h3>
+                            Bluetooth Speaker
+                        </h3>
+
+                        <div class="rating">
+                            ⭐⭐⭐⭐
+                            <span>(112)</span>
+                        </div>
+
+                        <div class="product-price">
+                            ₹4,999
+                        </div>
+
+
+                        <div class="product-actions">
+
+                            <button
+                                class="view-product"
+                                onclick="viewProduct('Bluetooth Speaker')"
+                            >
+                                View
+                            </button>
+
+
+                            <button
+                                class="product-cart"
+                                onclick="addProductToCart('Bluetooth Speaker')"
+                            >
+
+                                <i class="fa-solid fa-cart-plus"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="copyright">
+            © 2026 MarketHub. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

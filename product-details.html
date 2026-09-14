@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Product Details - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Market<span>Hub</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html">Products</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <button>
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+
+                <button>
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count">0</span>
+                </button>
+
+                <button class="login-btn">Login</button>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>/</span>
+        <a href="products.html">Products</a>
+        <span>/</span>
+        <b id="breadcrumbName">Product</b>
+    </div>
+
+
+    <!-- Product Details -->
+
+    <section class="product-details-container">
+
+        <!-- Product Image -->
+
+        <div class="details-image-section">
+
+            <div class="main-product-image">
+                <img id="productImage" src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Premium Laptop">
+            </div>
+
+            <div class="thumbnail-list">
+
+                <div class="thumbnail active"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Laptop"></div>
+                <div class="thumbnail"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Laptop"></div>
+                <div class="thumbnail"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=85" alt="Laptop"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Product Information -->
+
+        <div class="details-info">
+
+            <span class="details-category" id="detailsCategory">
+                Electronics
+            </span>
+
+            <h1 id="detailsName">
+                Premium Laptop
+            </h1>
+
+
+            <div class="details-rating">
+
+                <span>⭐⭐⭐⭐⭐</span>
+
+                <b id="detailsRating">
+                    4.9
+                </b>
+
+                <span class="review-count">
+                    (120 Reviews)
+                </span>
+
+            </div>
+
+
+            <div class="details-price">
+
+                <span id="detailsPrice">
+                    ₹49,999
+                </span>
+
+                <del id="detailsOldPrice">
+                    ₹59,999
+                </del>
+
+                <small id="detailsDiscount">
+                    20% OFF
+                </small>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="details-description">
+
+                <h3>About This Product</h3>
+
+                <p id="detailsDescription">
+
+                    Experience powerful performance and modern design
+                    with this premium product. Perfect for daily use,
+                    work and entertainment.
+
+                </p>
+
+            </div>
+
+
+            <!-- Quantity -->
+
+            <div class="quantity-section">
+
+                <h3>Quantity</h3>
+
+                <div class="quantity-box">
+
+                    <button onclick="changeQuantity(-1)">
+                        -
+                    </button>
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+                    <button onclick="changeQuantity(1)">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="details-buttons">
+
+                <button
+                    class="details-cart-btn"
+                    onclick="addDetailsToCart()"
+                >
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Add To Cart
+                </button>
+
+
+                <button
+                    class="buy-now-btn"
+                    onclick="buyNow()"
+                >
+                    Buy Now
+                </button>
+
+            </div>
+
+
+            <!-- Delivery -->
+
+            <div class="delivery-info">
+
+                <div>
+                    <i class="fa-solid fa-truck-fast"></i>
+
+                    <span>
+                        <b>Free Delivery</b>
+                        <small>Delivery within 3-5 days</small>
+                    </span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    <span>
+                        <b>Easy Returns</b>
+                        <small>7 days easy return policy</small>
+                    </span>
+                </div>
+
+
+                <div>
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        <b>Secure Payment</b>
+                        <small>100% secure payment</small>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Seller Section -->
+
+    <section class="seller-info-section">
+
+        <h2>Seller Information</h2>
+
+        <div class="seller-card">
+
+            <div class="seller-avatar">
+                🏪
+            </div>
+
+            <div>
+                <h3>TechStore Official</h3>
+
+                <p>
+                    ⭐ 4.8 Seller Rating
+                </p>
+
+                <small>
+                    Trusted seller on MarketHub
+                </small>
+            </div>
+
+            <button>
+                View Store
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Related Products -->
+
+    <section class="related-section">
+
+        <div class="section-title">
+
+            <div>
+                <span>YOU MAY ALSO LIKE</span>
+                <h2>Related Products</h2>
+            </div>
+
+            <a href="products.html">
+                View All
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+
+        <div class="product-grid">
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=85" alt="Wireless Headphones">
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Electronics
+                    </p>
+
+                    <h3>
+                        Wireless Headphones
+                    </h3>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price-row">
+
+                        <span class="price">
+                            ₹2,999
+                        </span>
+
+                        <button class="add-cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85" alt="Smart Watch">
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Electronics
+                    </p>
+
+                    <h3>
+                        Smart Watch
+                    </h3>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price-row">
+
+                        <span class="price">
+                            ₹3,499
+                        </span>
+
+                        <button class="add-cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=85" alt="Bluetooth Speaker">
+                </div>
+
+                <div class="product-info">
+
+                    <p class="product-category">
+                        Electronics
+                    </p>
+
+                    <h3>
+                        Bluetooth Speaker
+                    </h3>
+
+                    <div class="rating">
+                        ⭐⭐⭐⭐
+                    </div>
+
+                    <div class="price-row">
+
+                        <span class="price">
+                            ₹4,999
+                        </span>
+
+                        <button class="add-cart">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <div class="copyright">
+            © 2026 MarketHub. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

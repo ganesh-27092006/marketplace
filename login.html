@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login - MarketHub</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="auth-body">
+
+    <div class="auth-container">
+
+        <div class="auth-left">
+
+            <a href="index.html" class="auth-logo">
+                <i class="fa-solid fa-bag-shopping"></i>
+                Market<span>Hub</span>
+            </a>
+
+            <div class="auth-welcome">
+                <h1>Welcome Back! 👋</h1>
+
+                <p>
+                    Login to continue shopping and manage
+                    your orders on MarketHub.
+                </p>
+
+                <div class="auth-features">
+                    <p>✓ Secure Shopping</p>
+                    <p>✓ Easy Order Tracking</p>
+                    <p>✓ Best Products</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="auth-right">
+
+            <div class="auth-form">
+
+                <h2>Login to Your Account</h2>
+
+                <p class="auth-subtitle">
+                    Enter your details to continue
+                </p>
+
+
+                <div class="auth-input">
+
+                    <label>Email Address</label>
+
+                    <div>
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="auth-input">
+
+                    <label>Password</label>
+
+                    <div>
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="auth-button"
+                    onclick="loginUser()"
+                >
+                    Login
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+
+                <p class="auth-switch">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create Account
+                    </a>
+
+                </p>
+
+
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
